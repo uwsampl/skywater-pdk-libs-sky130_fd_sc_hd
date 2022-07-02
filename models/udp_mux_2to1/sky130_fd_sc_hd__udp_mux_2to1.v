@@ -30,6 +30,7 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
+`define NO_PRIMITIVES
 `ifdef NO_PRIMITIVES
 `include "./sky130_fd_sc_hd__udp_mux_2to1.blackbox.v"
 `else

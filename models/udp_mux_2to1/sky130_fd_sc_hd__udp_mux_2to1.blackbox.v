@@ -42,6 +42,9 @@ module sky130_fd_sc_hd__udp_mux_2to1 (
     input  A0;
     input  A1;
     input  S ;
+
+assign X=(S)?A1:A0;
+
 endmodule
 
 `default_nettype wire
