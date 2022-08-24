@@ -30,9 +30,26 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
-`define NO_PRIMITIVES
 `ifdef NO_PRIMITIVES
+`ifdef SKY130_FD_SC_HD__UDP_MUX_2TO1_LAKEROAD_HACK
+module sky130_fd_sc_hd__udp_mux_2to1 (
+    X ,
+    A0,
+    A1,
+    S
+);
+
+    output X ;
+    input  A0;
+    input  A1;
+    input  S ;
+
+    assign X  = S  ? A1 : A0;
+
+endmodule
+`else
 `include "./sky130_fd_sc_hd__udp_mux_2to1.blackbox.v"
+`endif
 `else
 primitive sky130_fd_sc_hd__udp_mux_2to1 (
     X ,
